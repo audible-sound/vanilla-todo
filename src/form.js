@@ -1,9 +1,12 @@
+import { Task } from "./taskSchema.js";
 class Form extends HTMLElement {
     #shadowRoot;
     #template
     #style;
     #formElement;
     #addButton;
+    #taskInput;
+    #errorMessage;
     constructor() {
         super();
 
@@ -11,14 +14,16 @@ class Form extends HTMLElement {
         this.#template = document.createElement("template");
         this.#template.innerHTML = `
         <form id="taskForm">
-            <input type="text">
+            <input type="text" id="taskInput">
             <button id="addButton" type="submit">+</button>
         </form>
+        <span class="error-message" status="input-valid">Invalid Input</span>
         `;
 
         //form style
         this.#style = document.createElement("style");
         this.#style.innerHTML = `
+        @import url("../css/form.css");
         `;
 
         //create shadow dom
@@ -30,15 +35,33 @@ class Form extends HTMLElement {
 
         this.#formElement = this.#shadowRoot.getElementById("taskForm");
         this.#addButton = this.#shadowRoot.getElementById("addButton");
+        this.#taskInput = this.#shadowRoot.getElementById("taskInput");
+        this.#errorMessage = this.#shadowRoot.querySelector(".error-message");
     }
 
     connectedCallback() {
         this.preventReload();
+        this.validateInput();
     }
 
+    //prevents app from reloading when submitting input
     preventReload() {
         this.#formElement.addEventListener("submit", (event) => {
             event.preventDefault();
+        })
+    }
+
+    isError(){
+        return this.#taskInput.value === "";
+    }
+
+    validateInput(){
+        this.#addButton.addEventListener("click",() => {
+            if (this.isError()) {
+                this.#errorMessage.setAttribute("status", "input-invalid");
+            } else{
+                this.#errorMessage.setAttribute("status", "input-valid");
+            }
         })
     }
 }

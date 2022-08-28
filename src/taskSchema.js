@@ -7,6 +7,6 @@ export class Task {
     static addToStorage(taskDescription) {
         const newTask = new Task(taskDescription);
         Task.allTask.push(newTask);
-        localStorage.setItem("allTasks", newTask)
+        localStorage.setItem("allTasks", newTask);
     }
 }

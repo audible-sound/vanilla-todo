@@ -1,0 +1,7 @@
+[status~="input-valid"]{
+    display: none;
+}
+[status~="input-invalid"]{
+    color: red;
+    font-weight: bold;
+}
