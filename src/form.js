@@ -40,8 +40,8 @@ class Form extends HTMLElement {
     }
 
     connectedCallback() {
-        this.preventReload();
         this.validateInput();
+        this.preventReload();
     }
 
     //prevents app from reloading when submitting input
@@ -61,8 +61,14 @@ class Form extends HTMLElement {
                 this.#errorMessage.setAttribute("status", "input-invalid");
             } else{
                 this.#errorMessage.setAttribute("status", "input-valid");
+                this.submitHandler();
             }
         })
+    }
+
+    submitHandler(){
+        const task = this.#taskInput.value;
+        Task.addToStorage(task);
     }
 }
 
