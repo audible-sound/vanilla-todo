@@ -1,3 +1,58 @@
+:root{
+    font-family: sans-serif;
+}
 .hide-element{
     display: none;
+}
+.btns-width{
+    width: 20%
+}
+#deleteButton,#editButton{
+    width: 50%;
+    font-size: 1rem;
+}
+#confirmEdit{
+    color: green;
+    font-weight: bold;
+    font-size: 1rem;
+}
+#deleteButton{
+    font-weight: bold;
+    color: red;
+}
+#editButton{
+    font-weight: bold;
+    color: blue;
+}
+.task-margin{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.text-width{
+    width: 80%
+}
+.input-width{
+    width: 720px;
+}
+.flex{
+    display: flex;
+}
+.border{
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
+button{
+    background: none;
+    border-color: white;
+    border-style: solid;
+    cursor: pointer;
+}
+.error-message{
+    font-family: sans-serif;
+    font-weight: bold;
+    color: red;
 }

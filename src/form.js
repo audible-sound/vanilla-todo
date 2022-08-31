@@ -13,9 +13,11 @@ class Form extends HTMLElement {
         //form template
         this.#template = document.createElement("template");
         this.#template.innerHTML = `
-        <form id="taskForm">
-            <input type="text" id="taskInput">
-            <button id="addButton" type="submit">+</button>
+        <form id="taskForm" class="full-width">
+            <div class="flex justify-center align-center">
+                <input class="input-width text-input input-height" type="text" id="taskInput">
+                <button class="green-btn btn-width btn-height" id="addButton" type="submit">+</button>
+            </div>
         </form>
         <span class="error-message" status="input-valid">Invalid Input</span>
         `;

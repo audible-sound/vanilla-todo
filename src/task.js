@@ -11,12 +11,14 @@ class TaskElement extends HTMLElement {
 
         this.#template = document.createElement("template");
         this.#template.innerHTML = `
-            <div>
-                <span id="description"></span>
-                <input type="text" id="editInput" class="hide-element">
-                <button id="editButton">Edit</button>
-                <button id="deleteButton">Delete</button>
-                <button id="confirmEdit" class="hide-element">Ok</button>
+            <div class="full-width flex flex-center border task-margin">
+                <span class="text-width" id="description"></span>
+                <input type="text" id="editInput" class="input-width hide-element">
+                <div class="btns-width flex flex-center">
+                    <button id="editButton">Edit</button>
+                    <button id="deleteButton">X</button>
+                    <button id="confirmEdit" class="hide-element">Ok</button>
+                </div>
                 <p class="hide-element error-message" id="errorMessage">Input Invalid!</p>
             </div>
         `;
